@@ -188,22 +188,6 @@ case $2 in
           do
             SEARCH_LOG=${INDEX_PREFIX_PATH}search/search_SQ${USE_SQ}_K${K}_CACHE${CACHE}_BW${BW}_T${T}_MEML${MEM_L}_MEMK${MEM_TOPK}_MEM_USE_FREQ${MEM_USE_FREQ}_PS${USE_PAGE_SEARCH}_USE_RATIO${PS_USE_RATIO}_GP_USE_FREQ{$GP_USE_FREQ}_GP_LOCK_NUMS${GP_LOCK_NUMS}_GP_CUT${GP_CUT}.log
             echo "Searching... log file: ${SEARCH_LOG}"
-            # echo "${DATA_TYPE}"
-            # echo "${INDEX_PREFIX_PATH}"
-            # echo "${QUERY_FILE}"
-            # echo "${GT_FILE}"
-            # echo "${K}"
-            # echo "${INDEX_PREFIX_PATH}"
-            # echo "${CACHE}"
-            # echo "${T}"
-            # echo "${LS}"
-            # echo "${BW}"
-            # echo "${MEM_L}"
-            # echo "${MEM_INDEX_PATH}"
-            # echo "${USE_PAGE_SEARCH}"
-            # echo "${PS_USE_RATIO}"
-            # echo "${DISK_FILE_PATH}"
-            # echo "${USE_SQ}"
             sync; echo 3 | sudo tee /proc/sys/vm/drop_caches; ${EXE_PATH}/tests/search_disk_index --data_type $DATA_TYPE \
               --dist_fn $DIST_FN \
               --index_path_prefix $INDEX_PREFIX_PATH \

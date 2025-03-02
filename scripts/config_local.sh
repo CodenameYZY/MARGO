@@ -11,7 +11,7 @@ dataset_SIFT100K
 R=64
 BUILD_L=125
 M=64
-BUILD_T=112
+BUILD_T=8
 
 ##################
 #       SQ       #
@@ -54,7 +54,7 @@ GP_CUT=4096 # the graph's degree will been limited at 4096
 #   Search   #
 ##############
 BM_LIST=(1)
-T_LIST=(56)
+T_LIST=(8)
 
 CACHE=0
 MEM_L=0 # non-zero to enable
