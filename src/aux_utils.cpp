@@ -1337,6 +1337,16 @@ namespace diskann {
       std::string norm_file = disk_index_path + "_max_base_norm.bin";
       diskann::save_bin<float>(norm_file, &max_norm_of_base, 1, 1);
     }
+    else if (compareMetric == diskann::Metric::COSINE)
+    {
+        std::cout << "Normalizing data for cosine to temporary file, please ensure there is additional "
+                     "(n*d*4) bytes for storing normalized base vectors, "
+                     "apart from the interim indices created by DiskANN and the final index."
+                  << std::endl;
+        std::string prepped_base = index_prefix_path + "_prepped_base.bin";
+        data_file_to_use = prepped_base;
+        diskann::normalize_data_file(base_file, prepped_base);
+    }
 
     unsigned R = (unsigned) atoi(param_list[0].c_str());
     unsigned L = (unsigned) atoi(param_list[1].c_str());
